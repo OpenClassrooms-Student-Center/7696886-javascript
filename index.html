@@ -5,6 +5,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <!-- Inclusion du fichier css pour le style du jeu -->
+    <link rel="stylesheet" href="style/style.css">
+
     <!-- Inclusion des 3 scripts nécessaires pour faire fonctionner le jeu -->
     <!-- Attention, l'ordre des fichiers js est important.  -->
     <script src="scripts/config.js"></script>
@@ -12,6 +15,43 @@
     <script src="scripts/main.js"></script>
 </head>
 <body>
-    
+    <!-- HEADER -->
+    <header>
+        <h1>AzerType</h1>
+        <h2>L'application pour écrire plus vite !</h2>
+        <h3>AzerType est une application en ligne pour apprendre à taper plus vite au clavier :)</h3>
+    </header>
+
+    <!-- MAIN -->
+    <main>
+        <div class="zoneOptions">
+            <p>Choisissez votre option, puis commencez à taper dans le champ prévu à cet effet.</p>
+            <div class="optionSource">
+                <input type="radio" name="optionSource" id="mots" value="1" checked>
+                <label for="mots">Mots</label>
+                <input type="radio" name="optionSource" id="phrases" value="2">
+                <label for="phrases">Phrases</label>
+            </div>
+        </div>
+
+        <div class="zoneProposition">
+            Azerty
+        </div>
+
+        <div class="zoneSaisie">
+            <input type="text" id="inputEcriture" name="inputEcriture">
+            <button id="btnValiderMot">Valider</button>
+        </div>
+
+        <div class="zoneScore">
+            Votre score : <span>0</span>
+        </div>
+        
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+        @Copyright : Openclassroms. 
+    </footer>
 </body>
 </html>

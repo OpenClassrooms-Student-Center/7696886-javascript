@@ -18,9 +18,25 @@ function afficherResultat(score, nbMotsProposes) {
     spanScore.innerText = affichageScore
 }
 
+/**
+ * Cette fonction affiche une proposition, que le joueur devra recopier, 
+ * dans la zone "zoneProposition"
+ * @param {string} proposition : la proposition à afficher
+ */
 function afficherProposition(proposition) {
     let zoneProposition = document.querySelector(".zoneProposition")
     zoneProposition.innerText = proposition
+}
+
+/**
+ * Cette fonction construit et affiche l'email. 
+ * @param {string} nom : le nom du joueur
+ * @param {string} email : l'email de la personne avec qui il veut partager son score
+ * @param {string} score : le score. 
+ */
+function afficherEmail(nom, email, score) {
+    let mailto = `mailto:${email}+?subject=Partage du score Azertype&body=Salut, je suis ${nom} et je vais de réaliser le score ${score} sur le site d'Azertype !`
+    location.href = mailto
 }
 
 /**
@@ -29,6 +45,7 @@ function afficherProposition(proposition) {
  */
 function lancerJeu() {
     // Initialisations
+    initAddEventListenerPopup()
     let score = 0
     let i = 0
     let listeProposition = listeMots
@@ -52,7 +69,6 @@ function lancerJeu() {
         } else {
             afficherProposition(listeProposition[i])
         }
-        
     })
 
     // Gestion de l'événement change sur les boutons radios. 

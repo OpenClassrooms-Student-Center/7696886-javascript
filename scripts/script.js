@@ -35,7 +35,7 @@ function afficherProposition(proposition) {
  * @param {string} score : le score. 
  */
 function afficherEmail(nom, email, score) {
-    let mailto = `mailto:${email}+?subject=Partage du score Azertype&body=Salut, je suis ${nom} et je vais de réaliser le score ${score} sur le site d'Azertype !`
+    let mailto = `mailto:${email}+?subject=Partage du score Azertype&body=Salut, je suis ${nom} et je viens de réaliser le score ${score} sur le site d'Azertype !`
     location.href = mailto
 }
 
@@ -87,6 +87,22 @@ function lancerJeu() {
             afficherProposition(listeProposition[i])
         })
     }
+
+    // Gestion de l'événement submit sur le formulaire de partage. 
+    let form = document.querySelector("form")
+    form.addEventListener("submit", (event) => {
+        event.preventDefault()
+
+        let baliseNom = document.getElementById("nom")
+        let nom = baliseNom.value
+
+        let baliseEmail = document.getElementById("email")
+        let email = baliseEmail.value
+
+        let scoreEmail = `${score} / ${i}`
+
+        afficherEmail(nom, email, scoreEmail)
+    })
 
     afficherResultat(score, i)
 }

@@ -65,6 +65,12 @@ function validerEmail(email) {
     
 }
 
+/**
+ * Cette fonction affiche le message d'erreur passé en paramètre. 
+ * Si le span existe déjà, alors il est réutilisé pour ne pas multiplier
+ * les messages d'erreurs. 
+ * @param {string} message 
+ */
 function afficherMessageErreur(message) {
     
     let spanErreurMessage = document.getElementById("erreurMessage")
@@ -80,7 +86,11 @@ function afficherMessageErreur(message) {
     spanErreurMessage.innerText = message
 }
 
-
+/**
+ * Cette fonction permet de récupérer les informations dans le formulaire
+ * de la popup de partage et d'appeler l'affichage de l'email avec les bons paramètres.
+ * @param {string} scoreEmail 
+ */
 function gererFormulaire(scoreEmail) {
     try {
         let baliseNom = document.getElementById("nom")

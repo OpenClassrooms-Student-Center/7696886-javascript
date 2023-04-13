@@ -121,7 +121,9 @@ function lancerJeu() {
     let listeProposition = listeMots
 
     let btnValiderMot = document.getElementById("btnValiderMot")
+    let listeBtnRadio = document.querySelectorAll(".optionSource input")
     let inputEcriture = document.getElementById("inputEcriture")
+
 
     afficherProposition(listeProposition[i])
 
@@ -135,14 +137,20 @@ function lancerJeu() {
         inputEcriture.value = ''
         if (listeProposition[i] === undefined) {
             afficherProposition("Le jeu est fini")
+            // On désactive le bouton valider
             btnValiderMot.disabled = true
+            // On désactive les boutons radios
+            for (let indexBtnRadio = 0; indexBtnRadio < listeBtnRadio.length; indexBtnRadio++) {
+                listeBtnRadio[indexBtnRadio].disabled = true
+            }
+
         } else {
             afficherProposition(listeProposition[i])
         }
     })
 
     // Gestion de l'événement change sur les boutons radios. 
-    let listeBtnRadio = document.querySelectorAll(".optionSource input")
+    
     for (let index = 0; index < listeBtnRadio.length; index++) {
         listeBtnRadio[index].addEventListener("change", (event) => {
             // Si c'est le premier élément qui a été modifié, alors nous voulons
